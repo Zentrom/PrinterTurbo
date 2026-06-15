@@ -2,6 +2,7 @@ import argparse
 import json
 import re
 from typing import Sequence
+from app.config import config
 
 from loguru import logger
 
@@ -315,6 +316,9 @@ def build_video_params(args: argparse.Namespace) -> VideoParams:
         params_kwargs["text_background_color"] = args.subtitle_background_color
     elif args.subtitle_background_enabled is True:
         params_kwargs["text_background_color"] = True
+
+    if not params_kwargs.get("voice_name"):
+        params_kwargs["voice_name"] = config.ui.get("voice_name", "")
 
     return VideoParams(**params_kwargs)
 

@@ -117,6 +117,9 @@ def _extract_qwen_generation_text(response) -> str:
 
 
 def _generate_response(prompt: str) -> str:
+    llm_provider = ""
+    model_name = ""
+    base_url = ""
     try:
         content = ""
         llm_provider = config.app.get("llm_provider", "openai")
@@ -557,6 +560,14 @@ def _generate_response(prompt: str) -> str:
 
         return _normalize_text_response(content, llm_provider)
     except Exception as e:
+        if llm_provider == "ollama":
+            return (
+                "Error: ollama connection failed"
+                f" at base_url={base_url!r}, model={model_name!r}. "
+                "Make sure Ollama is running, the model is pulled, and "
+                "`ollama_base_url` is reachable from this environment. "
+                f"Original error: {str(e)}"
+            )
         return f"Error: {str(e)}"
 
 

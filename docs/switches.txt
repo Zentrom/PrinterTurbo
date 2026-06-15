@@ -1,0 +1,37 @@
+
+python cli.py --video-subject "Why cats are great"
+
+--video-subject: required — video subject (string).
+--video-script: custom script (string, default "").
+--video-terms: comma-separated terms (string).
+--video-language: language code for script generation (string).
+--paragraph-number: script paragraph count (int, 1–10).
+--video-script-prompt: custom script requirements prompt (string).
+--custom-system-prompt: custom system prompt for script generation (string).
+--video-source: material source (choices: pexels, pixabay, coverr, local; default pexels).
+--video-materials: comma-separated local material paths (used when --video-source local).
+--stop-at: pipeline stop stage (choices: script, terms, audio, subtitle, materials, video; default video).
+--video-count: output video count (int >=1, default 1).
+--video-aspect: video aspect ratio (string, default 9:16).
+--video-concat-mode: concatenation mode (choices: random, sequential).
+--video-transition-mode: transition mode (choices/inputs: none, shuffle, fade-in, fade-out, slide-in, slide-out; maps internally to named modes).
+--video-clip-duration: max duration per source clip in seconds (int).
+--match-materials-to-script / --no-match-materials-to-script: boolean — match materials to script order.
+--voice-name: TTS voice name (string).
+--voice-volume: speech volume multiplier (float >=0).
+--voice-rate: speech rate multiplier (float >=0).
+--bgm-type: background music mode (none, random, custom) — note: none is converted to an empty string internally.
+--bgm-file: custom background music file (string).
+--bgm-volume: background music volume multiplier (float >=0).
+--subtitle-enabled / --no-subtitle-enabled: enable or disable subtitles (default enabled).
+--font-name: subtitle font file name (string).
+--subtitle-position: top, center, bottom, or custom.
+--custom-position: custom subtitle position as percent from top (float 0–100).
+--text-fore-color: subtitle text color (#RRGGBB).
+--font-size: subtitle font size (int).
+--stroke-color: subtitle outline color (#RRGGBB).
+--stroke-width: subtitle outline width (float >=0).
+--subtitle-background-enabled / --no-subtitle-background-enabled: toggle subtitle background.
+--subtitle-background-color: subtitle background color (#RRGGBB).
+--rounded-subtitle-background / --no-rounded-subtitle-background: toggle rounded translucent subtitle background.
+--task-id: custom task id (string). If omitted a UUID is generated.
